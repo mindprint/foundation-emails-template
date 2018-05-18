@@ -1,0 +1,12 @@
+// Custom resest and overrides
+
+// Remove blue links from mobile emails
+    a[href^=tel],
+    a[x-apple-data-detectors]{
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+    }

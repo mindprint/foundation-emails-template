@@ -24,7 +24,7 @@ var CONFIG;
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
-  gulp.series(clean, pages, sass, images, inline));
+  gulp.series(clean, pages, sass, fonts, images, inline));
 
 // Build emails, run the server, and watch for file changes
 gulp.task('default',
@@ -83,6 +83,14 @@ function sass() {
     .pipe(gulp.dest('dist/css'));
 }
 
+// Compile fonts into CSS
+var fontsPath = 'src/assets/scss/fonts.scss'
+function fonts() {
+  return gulp.src(fontsPath)
+    .pipe($.sass().on('error', $.sass.logError))        
+    .pipe(gulp.dest('dist/css'));
+}
+
 // Copy and compress images
 function images() {
   return gulp.src(['src/assets/img/**/*', '!src/assets/img/archive/**/*'])
@@ -116,6 +124,7 @@ function watch() {
 // Inlines CSS into HTML, adds media query CSS into the <style> tag of the email, and compresses the HTML
 function inliner(css) {
   var css = fs.readFileSync(css).toString();
+  var fonts = fs.readFileSync('dist/css/fonts.css').toString();
   var mqCss = siphon(css);
 
   var pipe = lazypipe()
@@ -125,7 +134,7 @@ function inliner(css) {
       preserveMediaQueries: true,
       removeLinkTags: false
     })
-    .pipe($.replace, '<!-- <style> -->', `<style>${mqCss}</style>`)
+    .pipe($.replace, '<!-- <style> -->', `<style>${fonts}${mqCss}</style>`)
     .pipe($.replace, '<link rel="stylesheet" type="text/css" href="css/app.css">', '')
     .pipe($.htmlmin, {
       collapseWhitespace: true,

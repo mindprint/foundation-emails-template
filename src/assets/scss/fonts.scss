@@ -1,0 +1,19 @@
+
+// 1. Paste in Google font rednition of the the import url e.g. 'https://fonts.googleapis.com/css?family=Oxygen:400,700'
+// 2. Rename font-weight values to normal, bold from 400, 700
+// 3. Don't forget to add the family name and fallbacks in the settings file under $body-font-family: 'FontFamilyName', Helvetica, Arial, sans-serif;
+
+@font-face {
+font-family: 'Oxygen';
+font-style: normal;
+font-weight: normal;
+src: local('Oxygen Regular'), local('Oxygen-Regular'), url(https://fonts.gstatic.com/s/oxygen/v7/2sDfZG1Wl4LcnbuKjk0mRUe0Aw.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+font-family: 'Oxygen';
+font-style: normal;
+font-weight: bold;
+src: local('Oxygen Bold'), local('Oxygen-Bold'), url(https://fonts.gstatic.com/s/oxygen/v7/2sDcZG1Wl4LcnbuCNWgzaGW5Kb8VZA.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
