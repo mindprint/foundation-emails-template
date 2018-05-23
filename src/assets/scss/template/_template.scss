@@ -38,6 +38,20 @@ html,
   background: transparent;
 }
 
+
+// Social Media
+
+.social-icons {
+  a {
+    img {
+      display: inline;
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
+
+
 // Social Media
 table.button.facebook table td {
   background: #3B5998 !important;
