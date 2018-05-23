@@ -1,3 +1,12 @@
+/**
+ * Render a social icon link as inline link
+ * @example
+ * {{icon 'facebook' 'https://www.facebook.com' 'round'}}
+ * paramaters are required and are as follows
+ * network url style
+ * Three styles are currently supported: round, round-hollow, square-rounded
+ */
+
 const Handlebars = require('handlebars');
 
 module.exports = function(network, url, style) {
